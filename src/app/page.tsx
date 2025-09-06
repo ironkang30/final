@@ -365,28 +365,28 @@ export default function Home() {
             원하는 음식 종류를 선택하면 해당 카테고리의 식당들을 볼 수 있습니다
           </p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4">
+        <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2">
           {/* 전체 버튼 */}
           <button
             onClick={() => setSelectedFilterCategory(null)}
-            className={`group relative p-4 sm:p-5 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 ${
+            className={`group relative px-3 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 ${
               !selectedFilterCategory
-                ? 'bg-blue-600 text-white shadow-xl shadow-blue-500/25 scale-105'
-                : 'bg-white/80 backdrop-blur-sm text-slate-700 hover:bg-white hover:shadow-lg border border-white/20 hover:bg-blue-50'
+                ? 'bg-blue-600 text-white shadow-md shadow-blue-500/25 scale-105'
+                : 'bg-white/80 backdrop-blur-sm text-slate-700 hover:bg-white hover:shadow-sm border border-white/20 hover:bg-blue-50'
             }`}
           >
-            <div className="flex flex-col items-center space-y-2">
-              <div className={`text-2xl sm:text-3xl transition-transform duration-300 ${
+            <div className="flex items-center space-x-1.5">
+              <div className={`text-sm transition-transform duration-300 ${
                 !selectedFilterCategory ? 'scale-110' : 'group-hover:scale-110'
               }`}>
                 🍽️
               </div>
-              <div className="text-xs sm:text-sm font-medium leading-tight">
+              <div className="text-xs font-medium">
                 전체
               </div>
             </div>
             {!selectedFilterCategory && (
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-400/20 to-indigo-500/20 animate-pulse"></div>
+              <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-400/20 to-indigo-500/20 animate-pulse"></div>
             )}
           </button>
           
@@ -395,24 +395,24 @@ export default function Home() {
             <button
               key={category.name}
               onClick={() => setSelectedFilterCategory(category.name)}
-              className={`group relative p-4 sm:p-5 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 ${
+              className={`group relative px-3 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 ${
                 selectedFilterCategory === category.name
-                  ? 'bg-blue-600 text-white shadow-xl shadow-blue-500/25 scale-105'
-                  : 'bg-white/80 backdrop-blur-sm text-slate-700 hover:bg-white hover:shadow-lg border border-white/20 hover:bg-blue-50'
+                  ? 'bg-blue-600 text-white shadow-md shadow-blue-500/25 scale-105'
+                  : 'bg-white/80 backdrop-blur-sm text-slate-700 hover:bg-white hover:shadow-sm border border-white/20 hover:bg-blue-50'
               }`}
             >
-              <div className="flex flex-col items-center space-y-2">
-                <div className={`text-2xl sm:text-3xl transition-transform duration-300 ${
+              <div className="flex items-center space-x-1.5">
+                <div className={`text-sm transition-transform duration-300 ${
                   selectedFilterCategory === category.name ? 'scale-110' : 'group-hover:scale-110'
                 }`}>
                   {category.emoji}
                 </div>
-                <div className="text-xs sm:text-sm font-medium leading-tight">
+                <div className="text-xs font-medium">
                   {category.name}
                 </div>
               </div>
               {selectedFilterCategory === category.name && (
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-400/20 to-indigo-500/20 animate-pulse"></div>
+                <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-400/20 to-indigo-500/20 animate-pulse"></div>
               )}
             </button>
           ))}
